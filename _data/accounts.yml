@@ -1,0 +1,12 @@
+- username: citizenfur
+  name: Citizen_Fur
+  followers: 582 # most recent followers count
+  following: 2454 # most recent following count
+  adate-f: 21-05-2023 # The date the account was added to the archive
+  adate-l: 21-05-2023 # The last time this account's archive was updated 
+  host: 2 # which numbered archive is this account's data stored on
+  artifactserial: 0008 # which artifact archive serial corresponds to this account (always digital)
+  location: Canadaland # user-set location data (returned via Twitter API when scraping)
+  bio: I know, I know, I look better in real life. # (returned via Twitter API when scraping)
+  joindate: "2009-02-01" # (returned via Twiter API in the "created" json object)
+  jointime: "23:59:18+00:00" # (returned via Twiter API in the "created" json object)

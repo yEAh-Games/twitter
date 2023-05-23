@@ -1,0 +1,90 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The yEAh Twitter Archive</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/twitteryeah.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/twitteryeah.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/twitteryeah.png">
+
+  <meta property="description"
+    content="The yEAh Twitter Archive: View complete and independant archives of important Twitter accounts in an easy-to-read and searchable format." />
+  <meta name="msapplication-TileColor" content="#ff4747">
+  <meta name="theme-color" content="#ff4747">
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:description"
+    content="The yEAh Twitter Archive: View complete and independant archives of important Twitter accounts in an easy-to-read and searchable format." />
+  <meta property="og:site_name" content="The yEAh Twitter Archive" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="twitter:title" content="The yEAh Twitter Archive" />
+
+  {% include gtag.html %}
+
+  <style>
+    .card {
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 flex flex-col min-h-screen">
+  <div class="container mx-auto py-8">
+    <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      {% for account in site.data.accounts %}
+      <a href="/{{account.username}}">
+        <div class="card bg-white">
+          <img
+            src="https://archive{{account.host}}.yeahgames.net/c/artifacts/d/{{account.artifactserial}}/dir/1/images/banner.jpg"
+            alt="Profile banner" class="w-full h-24 object-cover rounded-t-md" title="This user's profile banner.">
+          <div class="p-4">
+            <img
+              src="https://archive{{account.host}}.yeahgames.net/c/artifacts/d/{{account.artifactserial}}/dir/1/images/profile.jpg"
+              alt="Profile picture" class="w-16 h-16 rounded-full mb-4" title="This user's profile picture.">
+            <h3 class="text-xl font-bold mb-2" title="{{account.name}}">{{account.name}}</h3>
+            <p class="text-gray-800 mb-2" title="@{{account.username}}">@{{account.username}}</p>
+            <p class="text-gray-500 mb-2" title="{{account.bio}}">{{account.bio}}</p>
+            <span class="text-gray-500 mb-4"
+              title="The value the user set for 'location'; can be anything, is not necessairly an actual location."><i
+                class="fa-solid fa-location-dot"></i>&#160;{{account.location}}</span><br>
+            <span class="text-gray-500 mb-4" title="The date this account joined Twitter."><i
+                class="fa-solid fa-circle-plus"></i>&#160;{{account.joindate | date: "%B %-d, %Y"}}</span><br>
+            <span class="text-gray-500 mb-4" title="The last time this account's archive was updated."><i
+                class="fa-solid fa-clock"></i>&#160;{{account.adate-l | date: "%B %-d, %Y"}}</span>
+            <div class="flex items-center">
+              <p class="text-xl font-bold mr-2">{{account.followers}}</p>
+              <p class="text-gray-500">Followers</p>
+              &#160;&#160;&#160;&#160;&#160;
+              <p class="text-xl font-bold mr-2">{{account.followers}}</p>&#160;
+              <p class="text-gray-500">Following</p>
+            </div>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <footer class="bg-gray-800 py-4 mt-auto">
+    <div class="container mx-auto text-center">
+      <p class="text-gray-300"><span
+          title="Some rights reserved (under an open GNU license). The yEAh Twitter Archive is an opensource project and anyone can contribute. Copyrighted assets used include: TailwindCSS (design), FontAwesome (icons), SNScrape (tweet archiving), SNDisplay (our project: parsing & tweet rendering), loading.io (loading icons) and more. Check the repository (github: yeah-games/twitter) for more information.">&copy;
+          {{ "now" | date: "%Y" }}</span> <a href="https://twitter.yeahgames.net" style="color:#00acee">The yEAh Twitter
+          Archive</a>. Brought to you by the <a href="https://artifacts.yeahgames.net" style="color:lightblue">yEAh
+          Artifact Archive</a>, a <a href="https://library.yeahgames.net">library</a><a
+          href="https://library-collections.yeahgames.net">
+          collection</a> on the <a href="https://www.yeahgames.net" style="color:#ff4747">yEAh Network</a>.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
