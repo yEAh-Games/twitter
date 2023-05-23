@@ -1,3 +1,5 @@
+---
+---
 var pageUrl = window.location.pathname; // Get the current page's URL
 var pageFilename = pageUrl.substring(pageUrl.lastIndexOf('/') + 1); // Extract the filename
 
