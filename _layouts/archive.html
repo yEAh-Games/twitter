@@ -84,6 +84,7 @@
     </div>-->
 
     <body class="bg-gray-100">
+
         <div class="container mx-auto py-8">
             <h1 class="text-3xl font-bold mb-4">@citizenfur</h1>
             <form id="searchForm">
@@ -93,16 +94,23 @@
                     class="bg-blue-500 text-white py-2 px-4 rounded-r hover:bg-blue-600 focus:outline-none">Search</button>
             </form>
             <br>
-    
+
             <div id="tweetContainer"></div>
             <div id="loadingIcon" class="loading-icon">
                 <img src="https://twitter.yeahgames.net/assets/img/loading.svg" alt="Loading...">
+                <div class="w-64 bg-gray-200 rounded overflow-hidden">
+                    <div id="progress-bar" class="bg-green-500 h-6"></div>
+                </div>
+                <span class="text-gray-900">Loading tweets from database...</span>
             </div>
         </div>
-    
-<script>
-    {% include app.js %}
-</script>
+
+        <script>
+            {% include app.js %}
+        </script>
+        <script>
+            {% include loader.js }
+        </script>
     </body>
 
     <!--<script src="https://cdn.tailwindcss.com/modal/2.2.19/modal.min.js"></script>-->
