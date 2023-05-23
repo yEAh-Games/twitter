@@ -142,3 +142,23 @@ fetch('tweets.jsonl')
         });
     })
     .catch(error => console.error(error));
+
+
+    var progressBar = document.querySelector('#progress-bar');
+    var progress = 0;
+    var targetProgress = 100;
+    var animationDuration = 55000; // 55 seconds
+    var incrementInterval = animationDuration / targetProgress;
+    var intervalId = setInterval(updateProgressBar, incrementInterval);
+
+    function updateProgressBar() {
+      if (progress >= targetProgress) {
+        clearInterval(intervalId);
+        return;
+      }
+
+      progress++;
+
+      // Update width
+      progressBar.style.width = progress + '%';
+    }
