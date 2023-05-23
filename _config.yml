@@ -1,4 +1,4 @@
 plugins: 
  - jekyll-sitemap
 
-permalink: /:title
+permalink: /:basename
