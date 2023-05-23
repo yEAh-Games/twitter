@@ -1,5 +1,16 @@
-fetch('tweets.jsonl')
-    .then(response => response.text())
+var pageUrl = window.location.pathname; // Get the current page's URL
+var pageFilename = pageUrl.substring(pageUrl.lastIndexOf('/') + 1); // Extract the filename
+
+var username = pageFilename.replace('.html', '').replace('.md', ''); // Remove the file extension if needed
+
+var account = null;
+{% assign username = pageFilename | remove: ".html" | remove: ".md" %}
+{% assign account = site.data.accounts | where: "username", username | first %}
+
+if (account) {
+  var tweetsUrl = 'https://archive{{account.host}}.yeahgames.net/c/artifacts/twitter//{{account.username}}/tweets.jsonl';
+
+  fetch(tweetsUrl)  .then(response => response.text())
     .then(data => {
         const tweets = data.trim().split('\n');
         const tweetContainer = document.querySelector('#tweetContainer');

@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon" href="/assets/img/twitteryeah.png">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="/assets/css/app.css">
     <link href="https://twitter.yeahgames.net/{{page.permalink}}" rel="canonical">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/twitteryeah.png">
@@ -51,7 +51,6 @@
         }
     </style>
 
-
 </head>
 
 <body>
@@ -84,8 +83,25 @@
         </div>
     </div>-->
 
-    <iframe allowfullscreen
-        src="https://archive{{account.host}}.yeahgames.net/c/artifacts/d/{{account.artifactserial}}/dir/1/archive"></iframe>
+    <body class="bg-gray-100">
+        <div class="container mx-auto py-8">
+            <h1 class="text-3xl font-bold mb-4">@citizenfur</h1>
+            <form id="searchForm">
+                <input type="text" id="searchInput" placeholder="Search for a tweet..."
+                    class="p-2 border border-gray-300 rounded-l focus:outline-none">
+                <button type="submit" id="searchButton"
+                    class="bg-blue-500 text-white py-2 px-4 rounded-r hover:bg-blue-600 focus:outline-none">Search</button>
+            </form>
+            <br>
+    
+            <div id="tweetContainer"></div>
+            <div id="loadingIcon" class="loading-icon">
+                <img src="https://twitter.yeahgames.net/assets/img/loading.svg" alt="Loading...">
+            </div>
+        </div>
+    
+       <script src="https://twitter.yeahgames.net/assets/js/app.js"></script>
+    </body>
 
     <!--<script src="https://cdn.tailwindcss.com/modal/2.2.19/modal.min.js"></script>-->
 </body>
