@@ -144,7 +144,7 @@ fetch('tweets.jsonl')
     
     var progressBar = document.querySelector('#progress-bar');
     var request = new XMLHttpRequest();
-    var url = 'https://archive{{account.host}}.yeahgames.net/c/artifacts/twitter/{{account.username}}/tweets.jsonl';
+    var url = 'https://archive{{account.host}}.ynwk.org/c/artifacts/twitter/{{account.username}}/tweets.jsonl';
     request.open('GET', url, true);
     
     request.addEventListener('progress', function (event) {
@@ -155,7 +155,6 @@ fetch('tweets.jsonl')
     });
     
     request.addEventListener('load', function (event) {
-      // File has been successfully loaded
       progressBar.style.width = '100%';
     });
     
